@@ -50,15 +50,13 @@ func main() {
 
     fileScanner := bufio.NewScanner(readFile)
 
-    fileScanner.Split(bufio.ScanLines)
-
     for fileScanner.Scan() {
-            ans += minima(fileScanner.Text())
-        }
+        ans += minima(fileScanner.Text())
+    }
 
     readFile.Close()
+
     fmt.Println(ans)
+
 }
-
-
 
