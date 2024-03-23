@@ -1,6 +1,7 @@
 package main
 
 import (
+
 	"bufio"
 	"fmt"
 	"os"
@@ -8,7 +9,8 @@ import (
 
 func main() {
 
-	file, err := os.Open("input.txt")
+	file, err := os.Open("test.txt")
+
 	if err != nil {
 		fmt.Println("Error opening file:", err)
 		return
@@ -24,10 +26,11 @@ func main() {
 		sum += number
 	}
 
-	fmt.Println("The sum of all calibration values is:", sum)
+	fmt.Println(sum)
 }
 
 func extractNumber(line string) int {
+
 	firstDigit := -1
 	lastDigit := -1
 
@@ -42,12 +45,10 @@ func extractNumber(line string) int {
 
 	if firstDigit == -1 || lastDigit == -1 {
 		return 0
-	}
-
-	if firstDigit == lastDigit {
+	} else if firstDigit == lastDigit {
 		return 11 * firstDigit
-	}
-
-	return 10*firstDigit + lastDigit
+	} else {
+        return 10*firstDigit + lastDigit
+    }
 }
 
