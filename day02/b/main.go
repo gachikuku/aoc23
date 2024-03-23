@@ -8,25 +8,15 @@ import (
     "strconv"
 )
 
-func gameID(conudrum string) int {
-    gameRegex := regexp.MustCompile(`Game (\d+)`)
-    gameMatch := gameRegex.FindStringSubmatch(conudrum)
-    gameNumber := gameMatch[1]
-    result, err := strconv.Atoi(gameNumber)
-
-    if err != nil {
-        panic(err)
-    } 
-
-    return result
-}
-
 func minima(conudrum string) int {
+
     var red_max int
     var green_max int
     var blue_max int
+
     colorRegex := regexp.MustCompile(`(\d+) (\w+)`)
     colorMatches := colorRegex.FindAllStringSubmatch(conudrum, -1)
+
     for _, match := range colorMatches {
         colorNumber := match[1]
         number, err := strconv.Atoi(colorNumber)
